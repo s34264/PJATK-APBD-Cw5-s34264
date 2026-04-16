@@ -7,13 +7,14 @@
 - POST api/room 
 - DELETE api/room/{id}
 
-### Architektura:
+### Szczegóły implementacji:
 - Zaimplementowano strukturę warstwową:
 Repository
 Service
 Controller
 - Zaimplementowano DTO dla modeli klas.
 - Wykorzystano Data Annotations.
+- Wykorzystano statusy HTTP
 
 ### Czego brakuje:
 - Nie skończono implementacji modelu Rezerwacji.
