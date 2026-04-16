@@ -6,4 +6,6 @@ public interface IRoomService
     public List<Room> getRooms();
     public Room getRoomById(int id);
     public List<Room> fromBuilding(int buildingCode);
+    
+    public void deleteRoom(int id);
 }

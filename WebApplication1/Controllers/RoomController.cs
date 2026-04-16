@@ -71,8 +71,14 @@ public class RoomController : ControllerBase
     {
         try
         {
-            _roomService.AddRoom(RoomDTO.toRoom(roomDTO));
-            return CreatedAtAction(roomDTO.name, roomDTO);
+            Room room = RoomDTO.toRoom(roomDTO);
+            _roomService.AddRoom(room);
+            return CreatedAtAction(
+                nameof(GetRoom), 
+                new {roomId = room.id},
+                room
+                );
+           // return CreatedAtAction(roomDTO.name, roomDTO);
         }
         catch (Exception ex)
         {
@@ -80,4 +86,19 @@ public class RoomController : ControllerBase
         }
         
     }
+    
+    [HttpDelete("{roomId}")]
+    public ActionResult deleteRoom(int roomId)
+    {
+        try
+        {
+            _roomService.deleteRoom(roomId);
+            return NoContent();
+        }
+        catch(Exception ex)
+        {
+            return NotFound();
+        }
+    }
+    
 }

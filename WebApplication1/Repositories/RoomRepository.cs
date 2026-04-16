@@ -32,8 +32,11 @@ public class RoomRepository
     {
         return rooms;
     }
-    
-  
+
+    public void delete(int id)
+    {
+        rooms.Remove(findById(id));
+    }
     
     
 }

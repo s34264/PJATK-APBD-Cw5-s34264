@@ -4,7 +4,6 @@ namespace WebApplication1;
 
 public class RoomDTO
 {
-    public int id { get; set; }
     [Required]
     public string name { get; set; }
     [Required]
@@ -19,7 +18,6 @@ public class RoomDTO
 
     public RoomDTO(Room room)
     {
-        id = room.id;
         name = room.name;
         buildingCode = room.buildingCode;
         floor = room.floor;
@@ -28,8 +26,24 @@ public class RoomDTO
         isActive = room.isActive;
     }
 
+    public RoomDTO(string name, int buildingCode, int floor, int capacity, bool hasProjector, bool isActive)
+    {
+        this.name = name;
+        this.buildingCode = buildingCode;
+        this.floor = floor;
+        this.capacity = capacity;
+        this.hasProjector = hasProjector;
+        this.isActive = isActive;
+    }
+
     public static Room toRoom(RoomDTO roomDTO)
     {
         return new Room(roomDTO.name, roomDTO.buildingCode, roomDTO.floor, roomDTO.capacity, roomDTO.hasProjector, roomDTO.isActive);
+    }
+
+
+    public RoomDTO()
+    {
+        
     }
 }

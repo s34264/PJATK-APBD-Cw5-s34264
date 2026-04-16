@@ -25,4 +25,9 @@ public class RoomService : IRoomService
     {
         return _roomRepository.getRooms().Where(room => room.buildingCode == buildingCode).ToList();
     }
+
+    public void deleteRoom(int id)
+    {
+        _roomRepository.delete(id);
+    }
 }
