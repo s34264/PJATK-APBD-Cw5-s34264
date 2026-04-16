@@ -66,9 +66,18 @@ public class RoomController : ControllerBase
         return Ok(roomDTOs);
     }
 
-    /*[HttpPost]
-    public ActionResult<IEnumerable<RoomDTO>> createRoom(RoomDTO roomDTO)
+    [HttpPost]
+    public ActionResult createRoom(RoomDTO roomDTO)
     {
+        try
+        {
+            _roomService.AddRoom(RoomDTO.toRoom(roomDTO));
+            return CreatedAtAction(roomDTO.name, roomDTO);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest("Niepoprawne dane");
+        }
         
-    }*/
+    }
 }
