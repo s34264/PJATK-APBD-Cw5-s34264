@@ -1,5 +1,6 @@
-﻿namespace WebApplication1;
-
+﻿
+namespace WebApplication1;
+using System.ComponentModel.DataAnnotations;
 public class Room
 {
     private static int nextId = 1;
