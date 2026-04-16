@@ -9,4 +9,16 @@ public class RoomDTO
     public int capacity { get; set; }
     public bool hasProjector { get; set; }
     public bool isActive { get; set; }
+
+
+    public RoomDTO(Room room)
+    {
+        id = room.id;
+        name = room.name;
+        buildingCode = room.buildingCode;
+        floor = room.floor;
+        capacity = room.capacity;
+        hasProjector = room.hasProjector;
+        isActive = room.isActive;
+    }
 }
